@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+var adapt2word = require("../adapt2word.js");
+
+adapt2word.main();

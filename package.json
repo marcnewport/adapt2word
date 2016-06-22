@@ -1,0 +1,17 @@
+{
+  "name": "adapt2word",
+  "version": "0.1.0",
+  "description": "Convert Adapt JSON to Word doc.",
+  "main": "",
+  "scripts": {},
+  "license": "GPL v3",
+  "dependencies": {
+    "async": "^0.9.0",
+    "mu2": "^0.5.20",
+    "underscore": "^1.8.2",
+    "image-size": "^0.5.0"
+  },
+  "bin": {
+    "adapt2word": "./bin/adapt2word"
+  }
+}
