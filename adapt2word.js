@@ -128,11 +128,29 @@ function convertToHTML(data) {
                         ['Body', c.body, '']
                         // ['Layout', c._layout, '']
                     ];
-
-                    //mcq
                     rows.pushInto(['Instruction', c.properties.instruction, '']);
                     rows.pushInto(['Attempts', c.properties._attemps, '']);
 
+                    //graphic
+                    if (c.properties._graphic) {
+                        rows.pushInto(['Image large', processImage(c.properties._graphic.large), '']);
+                        rows.pushInto(['Image alt', c.properties._graphic.alt, '']);
+                        // rows.pushInto(['Image attribution', c.properties._graphic.attribution, '']);
+                    }
+
+                    //slider
+                    rows.pushInto(['Slider start label', c.properties.labelStart, '']);
+                    rows.pushInto(['Slider end label', c.properties.labelEnd, '']);
+
+                    if (c.properties._scaleStart) {
+                        rows.push(['Slider range', c.properties._scaleStart +' - '+ c.properties._scaleEnd, '']);
+                    }
+                    
+                    if (c.properties._correctRange) {
+                        rows.push(['Correct range', c.properties._correctRange._bottom +' - '+  c.properties._correctRange._top, '']);
+                    }
+
+                    //items
                     if (c.properties._items) {
                         c.properties._items.forEach(function(p, pi) {
                             //mcq
@@ -160,7 +178,7 @@ function convertToHTML(data) {
                         });
                     }
 
-                    //mcq
+                    //feedback
                     if (c.properties._feedback) {
                         rows.pushInto(['Feedback correct', c.properties._feedback.correct, '']);
                         if (c.properties._feedback._incorrect) {
@@ -171,25 +189,6 @@ function convertToHTML(data) {
                             rows.pushInto(['Feedback partly correct final', c.properties._feedback._partlyCorrect.final, '']);
                             rows.pushInto(['Feedback partly correct not final', c.properties._feedback._partlyCorrect.notFinal, '']);
                         }
-                    }
-
-                    //graphic
-                    if (c.properties._graphic) {
-                        rows.pushInto(['Image large', processImage(c.properties._graphic.large), '']);
-                        rows.pushInto(['Image alt', c.properties._graphic.alt, '']);
-                        // rows.pushInto(['Image attribution', c.properties._graphic.attribution, '']);
-                    }
-
-                    //slider
-                    rows.pushInto(['Slider start label', c.properties.labelStart, '']);
-                    rows.pushInto(['Slider end label', c.properties.labelEnd, '']);
-
-                    if (c.properties._scaleStart) {
-                        rows.push(['Slider range', c.properties._scaleStart +' - '+ c.properties._scaleEnd, '']);
-                    }
-
-                    if (c.properties._correctRange) {
-                        rows.push(['Correct range', c.properties._correctRange._bottom +' - '+  c.properties._correctRange._top, '']);
                     }
 
                     htmlBody += buildTable(

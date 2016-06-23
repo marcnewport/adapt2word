@@ -1,6 +1,6 @@
 {
   "name": "adapt2word",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert Adapt JSON to Word doc.",
   "main": "",
   "scripts": {},
